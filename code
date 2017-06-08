@@ -1,0 +1,127 @@
+
+int y = 50;
+String [] artMasc = {
+  "El", "Mi", "Tu", "Nuestro", "Aquel", "Este", "Todo", "Un", "Su", "Vuestro", "Ese",
+};
+
+String [] artFem = {
+  "La", "Aquella", "Esta", "Toda", "Una", "Esa",
+};
+
+String [] adjMasc = {
+  "perdido", "brumoso", "tóxico", "rápido",
+  "egoísta", "vacío", "manipulador", "infinito",
+  "misterioso", "brillante", "verde", "azul", "espacial",
+  "cansado", "duro", "suave", "transparente", "ruidoso", "subterráneo",
+  "frondoso", "extraño", "típico", "limpio", "vengativo", "ingenuo",
+  "antiguo", "valiente", "celoso", "sabio", "complejo",
+  "invisible", "buen", "gaseoso", "primitivo", 
+  "moderno", "tecnológico", "opaco", "húmedo", "espacial",
+  "frío", "seco", "falso", "surreal",
+  "onírico", "inteligente", "curioso", "extraño",
+  "único", "gris", "saturado", "perspicáz", "críptico",
+};
+
+String [] adjFem = {
+  "vacía", "roja", "rápida",
+  "elástica", "triste", "distante", "increíble", "infinita",
+  "misteriosa", "brillante", "verde", "azul",
+  "fértil", "dura", "suave", "transparente", "ruidosa",
+  "silenciosa", "extraña", "originaria", "limpia", "fina", "sensible",
+  "clásica", "buenmoza", "embaradaza", "temerosa",
+  "despiadada", "buena", "valiente", "prehistórica", 
+  "moderna", "jóven", "dulce", "húmeda", "moderna",
+  "fría", "seca", "falsa", "surreal", "líquida", 
+  "desnuda", "inteligente", "curiosa", "extraña",
+  "única", "gris", "saturada", "perspicaz",
+  "desoladora", "oscura","sabia", "lumínica", "interferencia",
+   
+};
+
+String [] sustMasc = {
+  "humo", "hombre", "hermano", "cielo", "astronáuta",
+  "jefe", "oxígeno", "árbol", "montruo", "animal", "escultor", "creador",
+  "bebe", "amigo", "enemogo", "piso", "héroe",
+  "espacio", "ayudante", "visor", "suelo", "río", "cielo", "accidente", 
+  "viento", "espacio", "proyecto", "patriarca",
+  "sol", "túnel", "volcán", "transporte", "aire","bosque","camino","sendero", ""
+  
+};
+  String [] sustFem = {
+    "nave", "hierba", "hermana", "cueva", 
+    "montaña", "rama", "visión",
+    "figura", "luna", "boca", "ingeniería", 
+    "herida", "torre de control", 
+    "flor", "sierra","selva", 
+    "hermandad", "profesía",
+    "exhibición", "comunicación", "interferencia", "",
+    "eternidad", "constelación", "calor", "sociedad", "fuego",
+    "ventana", "fotografía", "",
+    "imágen", "misión", "madre",
+    "piel",
+};
+
+String [] pron = {
+  "a", "ante", "bajo",
+  "con", "contra", "de", "desde",
+  "durante", "en", "entre", "hacia",
+  "hasta", "mediante", "para", "por", "según",
+  "sin", "sobre", "detrás", 
+};
+
+String [] verbo = {
+"pinta", "conoce", "moldea", "corre",
+"correrá", "camina", "vuela", "concebirá", "engendra", "juega",
+"enseña", "espera", "sobrevive", "respira","vive",
+"viaja", "viajó", "juega", "esconde", "flota", "mira", "piensa", 
+"está calculando", "explora", "escucha", "navega", "sufre", "ama", 
+"responde", "sonrríe", "repara", "se pregunta",
+"observa", "acompaña", "inventa", "acompaña", "vive",
+"podría ser", "nunca fue", "desea", "escapa", "muere", "sufre", 
+};
+
+void write_word(String[] words) {
+  int n = int(random(words.length));
+  textSize(random (20,40));
+  text(words [n], random(50,150), y);
+  y = y + 30;
+}
+void new_sentence () {
+  background (255);
+  
+  y = 50;
+  
+  write_word(artFem);
+  write_word(adjFem);
+  write_word(sustFem);
+  
+  write_word(verbo);
+  write_word(pron);
+  
+  write_word(artMasc);
+  write_word(adjMasc);
+  write_word(sustMasc);
+}
+
+void setup () {
+  size (400,350);
+  background (255);
+float r= random(100,230);
+float g= random(100,230);
+float b= random(100,230);
+  fill (r,g,b);
+  new_sentence ();
+}
+void draw () {
+}
+void mousePressed() {
+  new_sentence();
+  float r= random(100,230);
+float g= random(100,230);
+float b= random(100,230);
+  fill (r,g,b);
+}
+void keyPressed() {
+  int random_number = int(random (1000000));
+  save(random_number+".png");
+}
